@@ -1,13 +1,10 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-from config import params
 from PIL import Image,ImageEnhance
 
 
 class augment_techniques(params):
-    def __init__(self):
-        params.__init__(self)
 
     def rotate_bound(self, image, angle):
 
@@ -30,7 +27,7 @@ class augment_techniques(params):
         # perform the actual rotation and return the image
 
         resized = cv2.warpAffine(image, M, (nW, nH))
-        resized_img = cv2.resize(resized, (self.image_size[0], self.image_size[1]))
+        resized_img = cv2.resize(resized, (h, w))
         return resized_img
 
     def increase_brightness(self, img, value=30):
